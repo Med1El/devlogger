@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="mt-4 p-4 border">
+    <input type="text" class="form-control" [(ngModel)]="log.body" />
+    <button
+      class="btn btn-secondary mt-3"
+      (click)="onAddLog()"
+      [disabled]="!this.log.body"
+      [hidden]="!isNew"
+    >
+      Add Log
+    </button>
+    <button
+      class="btn btn-secondary mt-3"
+      (click)="onUpdateLog()"
+      [disabled]="!this.log.body"
+      [hidden]="isNew"
+    >
+      Update Log
+    </button>
+    <button
+      class="btn btn-warning mt-3 ml-2"
+      (click)="onClear()"
+      [hidden]="!this.log.body"
+    >
+      Clear
+    </button>
+  </div>
+</div>

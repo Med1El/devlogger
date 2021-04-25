@@ -1,0 +1,24 @@
+<div class="container">
+  <ul class="list-group mt-4" *ngIf="isLoaded && logs.length > 0">
+    <li
+      class="list-group-item d-flex align-items-center justify-content-between"
+      *ngFor="let log of logs"
+      [class.list-group-item-secondary]="selectedLog === log"
+    >
+      <span
+        ><a class="btn btn-link" (click)="onEditLog(log)">{{
+          log.body
+        }}</a></span
+      >
+      <span class="log-date">{{ log.date | date: "short" }}</span>
+      <span
+        class="btn bg-danger text-white py-1 px-2"
+        (click)="onDeleteLog(log)"
+        >X</span
+      >
+    </li>
+  </ul>
+  <h5 *ngIf="isLoaded && logs.length == 0" class="text-center border mt-3 p-3">
+    There are no logs in the system
+  </h5>
+</div>
